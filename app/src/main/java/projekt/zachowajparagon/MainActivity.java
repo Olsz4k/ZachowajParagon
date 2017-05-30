@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(ReceiptViewHolder viewHolder, Receipt model, int position) {
 
+                final String post_key = getRef(position).getKey();
+
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDesc(model.getDesc());
                 viewHolder.setImage(getApplicationContext(), model.getImage());
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        Toast.makeText(MainActivity.this, "Kliknąłeś w widok", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, post_key, Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -135,27 +137,16 @@ public class MainActivity extends AppCompatActivity {
 
         View nView;
 
-        TextView product_name;
-
         public ReceiptViewHolder(View itemView) {
             super(itemView);
 
             nView = itemView;
 
-            product_name = (TextView) nView.findViewById(R.id.product_name);
 
-            product_name.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Log.v("MainActivity", "Jakis tekst");
-
-                }
-            });
         }
 
         public void setTitle(String title) {
-           // TextView product_name = (TextView) nView.findViewById(R.id.product_name);
+            TextView product_name = (TextView) nView.findViewById(R.id.product_name);
             product_name.setText(title);
         }
 

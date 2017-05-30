@@ -124,7 +124,7 @@ public class ParagonActivity extends AppCompatActivity {
                                     if(task.isSuccessful()) {
 
                                         startActivity(new Intent(ParagonActivity.this, MainActivity.class));
-                                        
+
                                     }
                                 }
                             });
