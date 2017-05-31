@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "990091474845",
-    "firebase_url": "https://zachowajparagonbaza.firebaseio.com",
-    "project_id": "zachowajparagonbaza",
-    "storage_bucket": "zachowajparagonbaza.appspot.com"
+    "project_number": "319801701102",
+    "firebase_url": "https://zachowajparagon-3905e.firebaseio.com",
+    "project_id": "zachowajparagon-3905e",
+    "storage_bucket": "zachowajparagon-3905e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:990091474845:android:302b8bd18d4a5038",
+        "mobilesdk_app_id": "1:319801701102:android:1ed602eda492d8a2",
         "android_client_info": {
-          "package_name": "projekt.zachowajparagon"
+          "package_name": "psm.zachowajparagon"
         }
       },
       "oauth_client": [
         {
-          "client_id": "990091474845-0vi780tti66qjbscso26m7nr2co246kj.apps.googleusercontent.com",
+          "client_id": "319801701102-lhqvl6659as7j6rss61dcdneo5momu5g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBalqo7wFq0up1DcRhLi4o0JE2DZJ4VU98"
+          "current_key": "AIzaSyAhNdDB-Ob9WaIwDsCIDNSE_108MGBLEi4"
         }
       ],
       "services": {
