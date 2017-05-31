@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="psm.zachowajparagon.ReceiptSingleActivity">
+
+    <ImageView
+        android:id="@+id/singleReceiptImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/singleReceiptName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/singleReceiptImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/singleReceiptDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/singleReceiptName"
+        android:layout_alignRight="@+id/singleReceiptName"
+        android:layout_below="@+id/singleReceiptName"
+        android:layout_marginTop="33dp"
+        android:text="TextView" />
+
+</RelativeLayout>

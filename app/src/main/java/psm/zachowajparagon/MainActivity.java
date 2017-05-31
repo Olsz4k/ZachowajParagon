@@ -21,6 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private DatabaseReference mDatabaseUsers;
+    private DatabaseReference mDatabaseCurrentUser;
+
+    private Query mQueryCurrentUser;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -58,14 +62,22 @@ public class MainActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Receipts");
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
-
+        mDatabase.keepSynced(true);
         mDatabaseUsers.keepSynced(true);
+
+        String currentUserId = mAuth.getCurrentUser().getUid();
+
+        mDatabaseCurrentUser = FirebaseDatabase.getInstance().getReference().child("Receipts");
+
+        mQueryCurrentUser = mDatabaseCurrentUser.orderByChild("uid").equalTo(currentUserId);
 
 
 
         mReceiptsList = (RecyclerView) findViewById(R.id.receipts_list);
         mReceiptsList.setHasFixedSize(true);
         mReceiptsList.setLayoutManager(new LinearLayoutManager(this));
+
+        checkUserExist();
 
 
     }
@@ -82,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 Receipt.class,
                 R.layout.receipt_row,
                 ReceiptViewHolder.class,
-                mDatabase
+                mQueryCurrentUser
 
         ){
 
@@ -101,7 +113,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        Toast.makeText(MainActivity.this, receipt_key, Toast.LENGTH_LONG).show();
+                      //  Toast.makeText(MainActivity.this, receipt_key, Toast.LENGTH_LONG).show();
+
+                        Intent singleReceiptActivity = new Intent(MainActivity.this, ReceiptSingleActivity.class);
+                        singleReceiptActivity.putExtra("receipt_id", receipt_key);
+                        startActivity(singleReceiptActivity);
 
                     }
                 });
