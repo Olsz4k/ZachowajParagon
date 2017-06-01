@@ -9,10 +9,10 @@ public class Receipt {
     private String title;
     private String desc;
     private String image;
-    private int price;
-    private String place;
+    private String price;
+    private String shop;
     private String category;
-    private int guarantee;
+    private String guarantee;
 
 
     public Receipt() {
@@ -22,10 +22,7 @@ public class Receipt {
         this.title = title;
         this.desc = desc;
         this.image = image;
-        this.price = price;
-        this.place = place;
-        this.category = category;
-        this.guarantee = guarantee;
+
     }
 
     public String getTitle() {
@@ -52,19 +49,36 @@ public class Receipt {
         this.image = image;
     }
 
-    public void setPrice(int price) {
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public String getShop() {
+        return shop;
+    }
+
+    public void setShop(String shop) {
+        this.shop = shop;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
 
-    public void setGuarantee(int guarantee) {
+    public String getGuarantee() {
+        return guarantee;
+    }
+
+    public void setGuarantee(String guarantee) {
         this.guarantee = guarantee;
     }
 }

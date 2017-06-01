@@ -106,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDesc(model.getDesc());
-                viewHolder.setImage(getApplicationContext(), model.getImage());
+                viewHolder.setShop(model.getShop());
+                viewHolder.setCategory(model.getCategory());
+                viewHolder.setPrice(model.getPrice());
+                viewHolder.setGuarantee(model.getGuarantee());
+               // viewHolder.setImage(getApplicationContext(), model.getImage());
 
 
                 viewHolder.nView.setOnClickListener(new View.OnClickListener() {
@@ -188,10 +192,31 @@ public class MainActivity extends AppCompatActivity {
             product_desc.setText(desc);
         }
 
+        public void setShop(String shop) {
+            TextView product_shop = (TextView) nView.findViewById(R.id.product_shop);
+            product_shop.setText(shop);
+        }
+
+        public void setPrice(String price) {
+            TextView product_price = (TextView) nView.findViewById(R.id.product_price);
+            product_price.setText(price);
+        }
+
+        public void setCategory(String category) {
+            TextView product_category = (TextView) nView.findViewById(R.id.product_category);
+            product_category.setText(category);
+        }
+
+        public void setGuarantee(String guarantee) {
+            TextView product_guarantee = (TextView) nView.findViewById(R.id.product_guarantee);
+            product_guarantee.setText(guarantee);
+        }
+/*
         public void setImage(Context ctx, String image) {
             ImageView receipt_image = (ImageView) nView.findViewById(R.id.receipt_image);
             Picasso.with(ctx).load(image).into(receipt_image);
         }
+        */
     }
 
 

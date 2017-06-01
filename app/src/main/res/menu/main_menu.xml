@@ -6,10 +6,7 @@
         android:icon="@mipmap/ic_add_white_24dp"
         android:title="Add post"
         app:showAsAction="always" />
-
-    <item android:id="@+id/action_settings"
-        android:title="Ustawienia"
-        app:showAsAction="never" />
+    
 
     <item android:id="@+id/action_logout"
         android:title="Wyloguj"

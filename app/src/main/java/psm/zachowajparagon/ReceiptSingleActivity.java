@@ -13,6 +13,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 public class ReceiptSingleActivity extends AppCompatActivity {
 
     private String mProduct_key = null;
@@ -22,6 +24,9 @@ public class ReceiptSingleActivity extends AppCompatActivity {
     private ImageView mReceiptSingleImage;
     private TextView mReceiptSingleName;
     private TextView mReceiptSingleDesc;
+    private TextView mReceiptSinglePrice;
+    private TextView mReceiptSingleCategory;
+    private TextView mReceiptSingleShop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,10 @@ public class ReceiptSingleActivity extends AppCompatActivity {
         mReceiptSingleDesc = (TextView) findViewById(R.id.singleReceiptDesc);
         mReceiptSingleName = (TextView) findViewById(R.id.singleReceiptName);
         mReceiptSingleImage = (ImageView) findViewById(R.id.singleReceiptImage);
+        mReceiptSinglePrice = (TextView) findViewById(R.id.singleReceiptPrice);
+        mReceiptSingleCategory = (TextView) findViewById(R.id.singleReceiptCategory);
+        mReceiptSingleShop = (TextView) findViewById(R.id.singleReceiptShop);
+
 
 
         //Toast.makeText(ReceiptSingleActivity.this, product_key, Toast.LENGTH_LONG).show();
@@ -48,6 +57,10 @@ public class ReceiptSingleActivity extends AppCompatActivity {
                 String product_desc = (String) dataSnapshot.child("desc").getValue();
                 String product_image = (String) dataSnapshot.child("image").getValue();
                 String receipt_uid = (String) dataSnapshot.child("uid").getValue();
+                String product_price = (String) dataSnapshot.child("price").getValue();
+                String product_shop = (String) dataSnapshot.child("shop").getValue();
+                String product_category = (String) dataSnapshot.child("category").getValue();
+
 
                 mReceiptSingleName.setText(product_name);
                 mReceiptSingleDesc.setText(product_desc);

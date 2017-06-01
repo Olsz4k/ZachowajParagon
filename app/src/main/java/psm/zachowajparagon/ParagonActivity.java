@@ -54,11 +54,11 @@ public class ParagonActivity extends AppCompatActivity {
     private Button mSelectImage;
     private EditText mPostTitle;
     private EditText mPostDesc;
-    private EditText mPostShop;
+
     private Spinner mPostCategory;
     private EditText mPostPrice;
     private Button mSubmitBtn;
-    private Uri mImageUri = null;
+    private EditText mPostGuarantee;
     private Uri resultUri;
     private Uri fileUri = null;
     private String mShopValPicker = "";
@@ -93,10 +93,11 @@ public class ParagonActivity extends AppCompatActivity {
         mSelectImage = (Button) findViewById(R.id.imageSelect);
 
         mPostTitle = (EditText) findViewById(R.id.titleField);
-       // mPostShop = (EditText) findViewById(R.id.shopField);
+        //mPostShop = (EditText) findViewById(R.id.shopField);
         mPostCategory = (Spinner) findViewById(R.id.categoryField);
         mPostPrice = (EditText) findViewById(R.id.priceField);
         mPostDesc = (EditText) findViewById(R.id.descField);
+        mPostGuarantee = (EditText) findViewById(R.id.guaranteeField);
 
 
         mSubmitBtn = (Button) findViewById(R.id.submitBtn);
@@ -121,12 +122,7 @@ public class ParagonActivity extends AppCompatActivity {
         mSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(ParagonActivity.this, "A"+fileUri, Toast.LENGTH_LONG).show();
-
-
                 startParagon();
-
             }
         });
 
@@ -167,7 +163,6 @@ public class ParagonActivity extends AppCompatActivity {
             }
         }
 
-        // Create a media file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         File mediaFile;
         if (type == MEDIA_TYPE_IMAGE){
@@ -189,7 +184,8 @@ public class ParagonActivity extends AppCompatActivity {
         final String desc_val = mPostDesc.getText().toString().trim();
         final String shop_val = mShopValPicker;
         final String price_val = mPostPrice.getText().toString().trim();
-
+        final String category_val = mPostCategory.getSelectedItem().toString();
+        final String guarantee_val = mPostGuarantee.getText().toString();
 
         if(!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(desc_val) && resultUri != null) {
 
@@ -214,6 +210,8 @@ public class ParagonActivity extends AppCompatActivity {
                             newReceipt.child("shop").setValue(shop_val);
                             newReceipt.child("price").setValue(price_val);
                             newReceipt.child("image").setValue(downloadUrl.toString());
+                            newReceipt.child("category").setValue(category_val);
+                            newReceipt.child("guarantee").setValue(guarantee_val);
                             newReceipt.child("uid").setValue(mCurrentUser.getUid());
                             newReceipt.child("username").setValue(dataSnapshot.child("name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -251,7 +249,6 @@ public class ParagonActivity extends AppCompatActivity {
 
             CropImage.activity(fileUri)
                     .setGuidelines(CropImageView.Guidelines.ON)
-                    .setAspectRatio(1, 1)
                     .start(this);
         }
 

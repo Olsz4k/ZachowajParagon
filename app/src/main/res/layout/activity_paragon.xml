@@ -4,90 +4,256 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context="psm.zachowajparagon.ParagonActivity">
-
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <EditText
-                android:id="@+id/titleField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nazwa towaru" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/imageSelect"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="Wybierz zdjęcie paragonu"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:layout_marginBottom="1dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/descField"
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="Nazwa towaru: "
+                android:textColor="@color/black"
+                android:textSize="14dp"
+
+                />
+
+            <EditText
+                android:id="@+id/titleField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/myGreen"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/titleField"
-            android:layout_alignStart="@+id/titleField"
-            android:layout_below="@+id/titleField"
-            android:layout_marginTop="24dp"
-            android:layout_weight="0.29"
-            android:ems="10"
-            android:hint="Tu wpisz komntarz, uwagi lub opis swojego paragonu"
-            android:inputType="textMultiLine" />
+            android:layout_marginBottom="1dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/priceField"
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="Kategoria: "
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <Spinner
+                android:id="@+id/categoryField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:entries="@array/categories"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:spinnerMode="dropdown"
+                android:textColor="@color/myGreen"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kwota" />
+            android:orientation="horizontal">
 
-        <fragment
-            android:id="@+id/place_autocomplete_fragment"
-            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/submitBtn"
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:background="@color/white"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:text="Gwarancja: " />
+
+            <EditText
+                android:id="@+id/guaranteeField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:hint="Gwarancja w miesiącach"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/myGreen"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Zapisz paragon" />
+            android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/categoryField"
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:background="@color/white"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:text="Kwota: " />
+
+            <EditText
+                android:id="@+id/priceField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:hint="Kwota w PLN"
+                android:textColor="@color/myGreen"
+                android:textSize="14dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/categories"
-            android:spinnerMode="dropdown" />
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="Uwagi: "
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/descField"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_gravity="right"
+                android:layout_weight="4"
+                android:background="@color/white"
+                android:hint="Tu wpisz komntarz, uwagi lub opis swojego paragonu"
+                android:inputType="textMultiLine"
+                android:paddingBottom="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/myGreen"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="Sklep: "
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <fragment
+                android:id="@+id/place_autocomplete_fragment"
+                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_gravity="right"
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:textColor="@color/myGreen"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/imageSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/darkGreen"
+                android:text="Zrób zdjęcie"
+                android:textColor="@color/white"
+                app:srcCompat="@mipmap/ic_launcher" />
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/darkGreen"
+                android:text="Zapisz paragon"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
     </LinearLayout>
+
 
 </RelativeLayout>
