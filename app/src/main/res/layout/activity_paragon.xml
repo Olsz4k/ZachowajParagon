@@ -7,49 +7,87 @@
     tools:context="psm.zachowajparagon.ParagonActivity">
 
 
-    <ImageButton
-        android:id="@+id/imageSelect"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/titleField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="69dp"
-        android:layout_marginRight="69dp"
-        android:layout_marginTop="57dp"
-        android:ems="10"
-        android:text="Nazwa "
-        android:layout_below="@+id/imageSelect"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-    <EditText
-        android:id="@+id/descField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Opis"
-        android:layout_below="@+id/titleField"
-        android:layout_alignLeft="@+id/titleField"
-        android:layout_alignStart="@+id/titleField" />
+            <EditText
+                android:id="@+id/titleField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nazwa towaru" />
+        </TableRow>
 
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/descField"
-        android:layout_alignStart="@+id/descField"
-        android:layout_below="@+id/descField"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="50dp"
-        android:text="Zapisz" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/imageSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Wybierz zdjęcie paragonu"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <EditText
+            android:id="@+id/descField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/titleField"
+            android:layout_alignStart="@+id/titleField"
+            android:layout_below="@+id/titleField"
+            android:layout_marginTop="24dp"
+            android:layout_weight="0.29"
+            android:ems="10"
+            android:hint="Tu wpisz komntarz, uwagi lub opis swojego paragonu"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/priceField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kwota" />
+
+        <fragment
+            android:id="@+id/place_autocomplete_fragment"
+            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zapisz paragon" />
+
+        <Spinner
+            android:id="@+id/categoryField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/categories"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
 </RelativeLayout>

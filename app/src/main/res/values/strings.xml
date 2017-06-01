@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">ZachowajParagon</string>
+    <string name="app_name">Zachowaj Paragon</string>
+    <string-array name="categories">
+        <item>Artykuły budowlane</item>
+        <item>Artykuły dziecięce</item>
+        <item>Biżuteria, zegarki</item>
+        <item>Buty</item>
+        <item>Gry</item>
+        <item>Inne</item>
+        <item>Komputery</item>
+        <item>Kosmetyki</item>
+        <item>Książki</item>
+        <item>Meble</item>
+        <item>Motoryzacja</item>
+        <item>Płyty CD/DVD</item>
+        <item>RTV/AGD</item>
+        <item>Rzeczy do domu</item>
+        <item>Sprzęt fotograficzny</item>
+        <item>Sprzęt sportowy</item>
+        <item>Telefony i akcesoria</item>
+        <item>Torebki</item>
+        <item>Ubrania</item>
+        <item>Walizki</item>
+        <item>Zabawki</item>
+    </string-array>
 </resources>

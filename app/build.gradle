@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "psm.zachowajparagon"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -36,6 +36,11 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:1.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     testCompile 'junit:junit:4.12'
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.4.+'
+    compile 'com.google.android.gms:play-services-location:10.2.0'
+    compile 'com.google.android.gms:play-services-places:10.2.0'
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'
